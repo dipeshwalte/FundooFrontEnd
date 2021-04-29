@@ -83,36 +83,7 @@ background-color: #F5F5F5;
       display: flex;
       flex-direction: column;
     }
-    .notesDiv{
-      width: 100%;
-      .createNote{
-        display: flex;
-        margin-top: 30px;
-        justify-content: center;
-        .takeANote{
-          height:16px;
-          align-items: left;
-          //justify-content: center;
-          @include takenote();
-          h3{
-            color: #5F6368;
-          }
-        }
-        .takeANoteExpanded{
-          height:90px;          
-          @include takenote();
-        }
-
-      }
-      .createdNotes{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top:30px;
-        margin-left: 10%;
-        margin-right: 5%;
-      }
-    }
+    
         
     .personalInfo{
       .insidePersonalInfo{

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="header">
-    <div class="hambergerAndLogo">
+    <div class="hambergerAndLogo" (click)=homeClicked()>
       <button mat-button class="menu-button" (click)="sidebarOpened = !sidebarOpened"> 
         <mat-icon>menu</mat-icon>
       </button>
@@ -46,24 +46,10 @@
       </div>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="notesDiv">
-        <div class="createNote">
-          <div class="takeANote" *ngIf="!takeNoteExpanded" (click)="takeNoteExpanded = !takeNoteExpanded">
-            <h3>Take a note...</h3>
-          </div>
-          <div class="" *ngIf="takeNoteExpanded" >
-            <app-create-note (closeClickEvent)="receiveCloseClick($event)"></app-create-note>
-          </div>
-        </div>
+      
         <router-outlet></router-outlet>
-        <div class="createdNotes">
-          <div class="note" *ngFor="let noteObj of notesArray">
-            <div class="handleArchieve" *ngIf='noteObj["isArchieve"]===false'></div>
-            <app-note [noteObj]=noteObj></app-note>
-            <!-- <app-note [noteObj]=noteObj (click)="openDialog(noteObj)"></app-note> -->
-          </div>
-        </div>
-      </div>
+       
+      
     <div class="personalInfo" *ngIf="hideSignOut" >
       <div class="insidePersonalInfo">
         <mat-icon>account_circle</mat-icon>

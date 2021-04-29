@@ -37,6 +37,22 @@ export class UserService {
       }),
     });
   };
+  getArchieveNotes = () => {
+    return this.httpservice.get(`${UserService.url}Notes/Archieve`, true, {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    });
+  };
+  getTrashNotes = () => {
+    return this.httpservice.get(`${UserService.url}Notes/Trash`, true, {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    });
+  };
   updateColor = (id: number, color: string) => {
     //let params = new HttpParams().set('colorCode', color);
     color=color.replace("#","%23")

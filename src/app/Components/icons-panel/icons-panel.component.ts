@@ -33,6 +33,7 @@ export class IconsPanelComponent implements OnInit {
   onArchieveClick(){
     this.archiveClicked.emit(!this.archiveClickedFlag);
   }
+  
   // onDeleteClick(){
   //   this.binClicked.emit(!this.binClickedFlag);
   // }

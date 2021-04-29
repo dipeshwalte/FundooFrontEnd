@@ -32,8 +32,9 @@ import { ColorPalleteComponent } from './Components/color-pallete/color-pallete.
 import { MatDialogModule } from '@angular/material/dialog';
 import { MoreMenuComponent } from './Components/more-menu/more-menu.component';
 import { UpdateNoteComponent } from './Components/update-note/update-note.component';
-import { ArchieveComponent } from './Components/archieve/archieve.component';
-import { ThrashComponent } from './Components/thrash/thrash.component';
+import { NotesComponent } from './Components/notes/notes.component';
+import { ArchieveeComponent } from './Components/archievee/archievee.component';
+import { TrashComponent } from './Components/trash/trash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,8 +52,9 @@ import { ThrashComponent } from './Components/thrash/thrash.component';
     ColorPalleteComponent,
     MoreMenuComponent,
     UpdateNoteComponent,
-    ArchieveComponent,
-    ThrashComponent
+    NotesComponent,
+    ArchieveeComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule,

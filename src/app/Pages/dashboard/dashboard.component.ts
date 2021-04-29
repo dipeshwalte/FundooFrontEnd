@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   hideSignOut:boolean = false;
   submitted = false;
   sidebarOpened:boolean = true;
-  takeNoteExpanded:boolean = false;
+  
   notesArray:any ;
   
   constructor(private service:UserService,
@@ -38,15 +38,15 @@ export class DashboardComponent implements OnInit {
       body: noteObj["body"]
     }});
   }
-  receiveCloseClick($event:boolean){
-    this.takeNoteExpanded = $event;
-  }
+ 
  showArchieve(){
    this.router.navigate(['archieve'],{relativeTo:this.acRoute});
  }
  trashNotes(){
    this.router.navigate(['thrash'],{relativeTo:this.acRoute});
  }
+ homeClicked()
+  {this.router.navigate(['notes'],{relativeTo:this.acRoute});}
 }
 
 

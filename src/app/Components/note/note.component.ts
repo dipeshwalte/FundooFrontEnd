@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/Services/UserService/user.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
@@ -10,6 +10,8 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
 })
 export class NoteComponent implements OnInit {
   @Input() noteObj:Object;
+  //@Input() notesArray:any;
+  @Output() archieveClicked = new EventEmitter<Boolean>();
   colorPalleteShow:boolean = false;
   moreMenuShow:boolean = false;
   showControls:boolean;
@@ -40,7 +42,7 @@ export class NoteComponent implements OnInit {
    receiveDeleteButtonClick($event)
    {
      this.service.thrashNote(this.noteObj["noteId"]).subscribe(data =>{console.log(data)
-     this.service.getNotes().subscribe(data=>console.log(data));
+     
      });
      //window.location.reload();
    }
@@ -48,8 +50,8 @@ export class NoteComponent implements OnInit {
    {
      this.service.archieveNote(this.noteObj["noteId"]).subscribe(data => 
      {console.log(data)
-     console.log("Firing getnotes again");
-     this.service.getNotes().subscribe(data=>console.log(data))});
+      this.archieveClicked.emit(true);
+     });
    }
   ngOnInit(): void {
     this.bgColor = this.noteObj["color"];
