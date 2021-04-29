@@ -1,0 +1,30 @@
+<div class="createNote" [ngStyle]="{'background-color':bgColor}">
+  <form [formGroup]="createNoteForm" class="example-form">
+    <div class="title">
+      <!-- <mat-form-field class="example-full-width"> -->
+      <textarea matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"
+                placeholder="Title" formControlName="title" class="form-control" [(ngModel)]=data.title></textarea>
+      <!-- </mat-form-field> -->
+    </div>
+    <div class="textOfNote">
+      <textarea matInput 
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"
+        placeholder="Take a note..." formControlName="noteText" class="form-control" [(ngModel)]=data.body></textarea>
+    </div>
+    <div class="icons-and-button">
+    <app-icons-panel></app-icons-panel>
+    <div class="hideShowColorPalette" *ngIf="hideShowColorPalette" >
+      <app-color-pallete (colorEmitter)="receiveColor($event)"></app-color-pallete>
+    </div>
+    
+    <button mat-flat-button class="buttonNext" (click)="createNote()">Close</button>
+    </div>
+    </form>
+  </div>

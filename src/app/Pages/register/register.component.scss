@@ -1,0 +1,218 @@
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+@mixin rightMargin {
+  display: inline-flex;
+  margin-right: 10px;
+}
+@mixin columnFlex{
+  display: flex;
+  flex-direction: column;
+}
+@mixin fontSize {
+  font-size: 10px;
+}
+@mixin fontSizeMobile {
+  font-size: small;
+}
+.buttonSignIn{
+color:#1A73E8
+}
+.buttonNext{
+background-color: #1A73E8;
+color:white;
+}
+.fixWidth{
+  width: 160px;
+}
+
+.invalid-feedback{
+  color:red;
+}
+.noWrapper{
+  margin-bottom: -1.25em;
+}
+.ErrorImageIcon{
+  display: inline-block;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  .insideContainer{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #DADCE0;  
+    border-radius: 10px;
+    padding:20px;
+    
+     .forbuttons{
+       display: flex;
+       flex-direction: row ;
+       
+      .formContainer{
+        border:none;
+        width: auto;
+        
+        .firstNameLastName{
+          @include fontSize();
+          display: flex;
+          justify-content: flex-start;
+        
+          height: 65px;
+          .firstname{
+                @include columnFlex();
+                @include rightMargin();
+              }
+            
+          .lastname{
+            @include columnFlex();
+            justify-content: flex-start;
+          }
+        }
+        
+        .emailId{
+          height: 65px;
+          @include columnFlex();
+          @include fontSize();
+        }
+        .passwordContainer{
+          height: 65px;
+          @include fontSize();
+          display: flex;
+          flex-direction: row;
+          .password{
+            @include columnFlex();
+            @include rightMargin();
+          }
+          .confirm{
+            @include columnFlex();
+            display: inline-flex;
+          }
+          
+        }
+        label{
+          font-size: 13px;
+        }
+        p{
+          text-align: center;
+          font-size: x-small;
+        }
+        .signin{
+          display: flex;
+          justify-content: space-around;
+          margin-top: 5%;
+        }
+      }
+      .verticalBar{
+        width:5%;
+      }
+      .imageContainer{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 252px;
+            p{
+              text-align: center;
+              margin-top: 5%;
+              font-family: Roboto;
+            }
+          }//image container
+      }//for buttons
+  }//inside container
+}
+
+@media only screen and (max-width: 600px) {
+  .fixWidth{
+    width: auto;
+  }
+  .container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+  
+    .insideContainer{
+      display: flex;
+      flex-direction: column;
+      border: solid 1px #DADCE0;  
+      border-radius: 0px;
+      
+      .forbuttons{
+        
+       .formContainer{
+         border:none;
+ 
+         .firstNameLastName{
+           @include fontSizeMobile();
+           display: flex;
+           justify-content: flex-start;
+           flex-direction: column;
+           //height here
+           height: 160px;
+           .firstname{
+                  height: 80px;
+                  margin-right: 0px;
+                 @include columnFlex();
+               }
+             
+           .lastname{
+             @include columnFlex();
+             justify-content: flex-start;
+           }
+         }
+         
+         .emailId{
+           height: 80px;
+           @include columnFlex();
+           @include fontSizeMobile();
+         }
+         .passwordContainer{
+           height: 160px;
+           @include fontSizeMobile();
+           display: flex;
+           flex-direction: column;
+           .password{
+             height: 80px;
+             margin-right: 0px;
+             @include columnFlex();
+            
+           }
+           .confirm{
+             @include columnFlex();
+             display: inline-flex;
+           }
+           
+         }
+         p{
+           text-align: center;
+           font-size: small;
+         }
+         .signin{
+           display: flex;
+           justify-content: space-around;
+           margin-top: 5%;
+         }
+       }
+       .verticalBar{
+         width:5%;
+       }
+       .imageContainer{
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+ 
+             p{
+               text-align: center;
+               margin-top: 5%;
+               font-family: Roboto;
+             }
+           }//image container
+       }//for buttons
+    }
+  }
+}
+

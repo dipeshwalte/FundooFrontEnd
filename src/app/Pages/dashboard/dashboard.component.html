@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="header">
+    <div class="hambergerAndLogo">
+      <button mat-button class="menu-button" (click)="sidebarOpened = !sidebarOpened"> 
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="../../../assets/Images/logo.png" alt="fundooLogo" width="40px" height="50px">
+      <img src="../../../assets/Images/fundoo.bmp" alt="fundooLogo" width="75px" height="24px">
+    </div>
+    <div class="searchbar">
+    <mat-form-field appearance="outline" class="search example-full-width noWrapper">
+      <mat-icon matPrefix>search</mat-icon>
+      <input type="search" matInput placeholder="Search">
+      <mat-icon matSuffix>close</mat-icon>
+    </mat-form-field>
+    </div>
+    <button mat-button (click)="hideSignOut = !hideSignOut">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+ 
+  <div class="dashboard">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="sidebarOpened">
+      <div class="sidebar">
+        <div class="notes flexCenter">
+          <mat-icon class="iconColor">lightbulb_outline</mat-icon>
+          <label>Notes</label>
+        </div>
+        <div class="reminders flexCenter">
+          <mat-icon class="material-icons-outlined iconColor">notifications</mat-icon>
+          <label>Notification</label>
+        </div>
+        <div class="editlabels flexCenter">
+          <mat-icon class="material-icons-outlined iconColor">edit</mat-icon>
+          <label>Edit lables</label>
+        </div>
+        <div class="archieve flexCenter" (click)=showArchieve()>
+          <mat-icon class="material-icons-outlined iconColor">archive</mat-icon>
+          <label>Archieve</label>
+        </div>
+        <div class="bin flexCenter" (click)=trashNotes()>
+          <mat-icon class="iconColor">delete_outline</mat-icon>
+          <label>Bin</label>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="notesDiv">
+        <div class="createNote">
+          <div class="takeANote" *ngIf="!takeNoteExpanded" (click)="takeNoteExpanded = !takeNoteExpanded">
+            <h3>Take a note...</h3>
+          </div>
+          <div class="" *ngIf="takeNoteExpanded" >
+            <app-create-note (closeClickEvent)="receiveCloseClick($event)"></app-create-note>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+        <div class="createdNotes">
+          <div class="note" *ngFor="let noteObj of notesArray">
+            <div class="handleArchieve" *ngIf='noteObj["isArchieve"]===false'></div>
+            <app-note [noteObj]=noteObj></app-note>
+            <!-- <app-note [noteObj]=noteObj (click)="openDialog(noteObj)"></app-note> -->
+          </div>
+        </div>
+      </div>
+    <div class="personalInfo" *ngIf="hideSignOut" >
+      <div class="insidePersonalInfo">
+        <mat-icon>account_circle</mat-icon>
+        <h4>Dipesh Walte</h4>
+        <div>dipeshwalte@gmail.com</div>
+        <div class="logout">
+          <button mat-flat-button class="buttonSignOut">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  </div>
+
+</div>

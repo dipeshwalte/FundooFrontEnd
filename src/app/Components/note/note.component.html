@@ -1,0 +1,19 @@
+<div class="note" [ngStyle]="{'background-color':bgColor}">
+  <div class="title" (click)="openDialog(noteObj)">
+    {{noteObj["title"]}}
+  </div>
+  <div class="body" (click)="openDialog(noteObj)">
+    {{noteObj["body"]}}
+  </div>
+  <div class="iconsPanel">
+    <app-icons-panel (moreMenuClicked)="receiveMoreMenu($event)" 
+                      (colorPalleteClicked)="receiveColorPallete($event)"
+                      (archiveClicked)="receiveArchieveClicked($event)"></app-icons-panel>
+    <div class="moremenu" *ngIf="moreMenuShow">
+      <app-more-menu (deleteButtonEmitter)="receiveDeleteButtonClick($event)"></app-more-menu>
+    </div>
+    <div class="colorPallete" *ngIf="colorPalleteShow">
+      <app-color-pallete (colorEmitter)="receiveColor($event)"></app-color-pallete>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="insideContainer">
+    <div class="forbuttons">
+      <div class="formContainer">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="insideFormContainer">      
+          <img src="../../../assets/Images/fundoo.bmp" alt="fundooLogo" width="75px" height="24px">
+          <div class="CreateFundooAccount">
+            <h2>Create your Fundoo Account</h2>
+          </div>
+          <div class="firstNameLastName">
+              <div class="firstname">
+                <mat-form-field appearance="outline" class="noWrapper fixWidth" >
+                  <mat-label>First Name </mat-label>
+                  <input matInput placeholder="" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+                </mat-form-field>
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+                <!-- <app-form-input [label]='firstName' formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"></app-form-input> -->
+              </div>
+            <div class="lastname">
+              <mat-form-field appearance="outline" class="noWrapper fixWidth" >
+                <mat-label>Last Name </mat-label>
+                <input matInput placeholder="" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+              </mat-form-field>
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+              </div>
+              <!-- <app-form-input [label]='lastName'></app-form-input> -->
+            </div>
+          </div>
+          <div class="emailId">
+            <mat-form-field appearance="outline" class="noWrapper" >
+              <mat-label>Email Id</mat-label>
+              <input matInput placeholder="" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+            </mat-form-field>
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email Id is required</div>
+              <div *ngIf="f.email.errors.email">Enter a proper Email id</div>
+            </div>
+          </div>
+          <div class="passwordContainer">
+            <div class="password">
+              <mat-form-field appearance="outline" class="noWrapper fixWidth" >
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hideContent ? 'text' : 'password'"  placeholder="" formControlName="password" class="form-control" name="password" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+              </mat-form-field>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+            <div class="confirm">
+              <mat-form-field appearance="outline" class="noWrapper fixWidth">
+                <mat-label>Confirm</mat-label>
+                <input matInput 
+                        [type]="hideContent ? 'text' : 'password'" 
+                        placeholder="" formControlName="confirmPassword" name="confirmPassword" class="form-control"
+                        [ngClass]=" {'is-invalid': submitted && f.firstName.errors }"
+                        fxLayout="column"/>
+              </mat-form-field>
+              <div *ngIf="submitted && (f.confirmPassword.errors || (f.password.value!=f.confirmPassword.value))" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">Confirm your Password</div>
+                <div *ngIf="f.password.value!=f.confirmPassword.value"> Password & Confirm Password does not match.</div>
+              </div>
+            </div>
+          </div>
+          <p>Use 8 or more characters with a mix of letters, numbers and symbols</p>
+          <div class="showpassword">
+            <!-- <app-checkbox></app-checkbox> -->
+            <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="togglemyPasswordFieldType()">
+              <mat-icon>{{hideContent ? "visibility":"visibility_off"}}</mat-icon>
+            </button><label for="ShowPassword">Show Password</label>
+          </div>        
+        </div>
+        <div class="signin ">
+          <button mat-button class="buttonSignIn">Sign in Instead</button>
+          <button mat-flat-button class="buttonNext">Next</button>
+        </div>
+      </form>
+      </div>
+      <div class="verticalBar">
+
+      </div>
+      <div class="imageContainer" fxHide.xs>
+        <img src="../../../assets/Images/account.svg" width="215px" height="215px">
+        <p> Fundoo Notes. Your notes taking partner. </p>
+      </div>
+      
+    </div>
+      
+  </div>
+</div>
