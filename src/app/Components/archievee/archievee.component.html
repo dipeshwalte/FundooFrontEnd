@@ -1,0 +1,7 @@
+<div class="createdNotes">
+  <div class="note" *ngFor="let noteObj of notesArray">
+    <div class="handleArchieve" *ngIf='noteObj["isArchieve"]===false'></div>
+    <app-note [noteObj]=noteObj></app-note>
+    <!-- <app-note [noteObj]=noteObj (click)="openDialog(noteObj)"></app-note> -->
+  </div>
+</div>

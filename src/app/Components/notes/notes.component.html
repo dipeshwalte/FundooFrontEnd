@@ -1,0 +1,17 @@
+<div class="notesDiv">
+        <div class="createNote">
+          <div class="takeANote" *ngIf="!takeNoteExpanded" (click)="takeNoteExpanded = !takeNoteExpanded">
+            <h3>Take a note...</h3>
+          </div>
+          <div class="" *ngIf="takeNoteExpanded" >
+            <app-create-note (closeClickEvent)="receiveCloseClick($event)"></app-create-note>
+          </div>
+        </div>
+        <div class="createdNotes">
+          <div class="note" *ngFor="let noteObj of notesArray">
+            <div class="handleArchieve" *ngIf='noteObj["isArchieve"]===false'></div>
+            <app-note [noteObj]=noteObj (archieveClicked)=refreshPage()></app-note>
+            <!-- <app-note [noteObj]=noteObj (click)="openDialog(noteObj)"></app-note> -->
+          </div>
+        </div>
+      </div>
