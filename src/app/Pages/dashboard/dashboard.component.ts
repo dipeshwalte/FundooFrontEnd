@@ -38,7 +38,14 @@ export class DashboardComponent implements OnInit {
       body: noteObj["body"]
     }});
   }
- 
+  isLargeScreen() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (width > 720) {
+        return true;
+    } else {
+        return false;
+    }
+  }
  showArchieve(){
    this.router.navigate(['archieve'],{relativeTo:this.acRoute});
  }

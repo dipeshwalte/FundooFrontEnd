@@ -21,7 +21,7 @@
  
   <div class="dashboard">
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="sidebarOpened">
+    <mat-sidenav #sidenav [mode]="isLargeScreen() ? 'side' : 'over'" [(opened)]="sidebarOpened">
       <div class="sidebar">
         <div class="notes flexCenter">
           <mat-icon class="iconColor">lightbulb_outline</mat-icon>
@@ -46,10 +46,7 @@
       </div>
     </mat-sidenav>
     <mat-sidenav-content>
-      
         <router-outlet></router-outlet>
-       
-      
     <div class="personalInfo" *ngIf="hideSignOut" >
       <div class="insidePersonalInfo">
         <mat-icon>account_circle</mat-icon>
